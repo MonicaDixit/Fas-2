@@ -1,0 +1,36 @@
+<div class="card">
+   <div class="row card-header">
+      <div class="col-xs-1">
+         <span>Service Id</span>
+      </div>
+      <div class="col-xs-2">
+         <span>Name</span>
+      </div>
+      <div class="col-xs-3">
+         <span>Total Cost(USD) </span>
+      </div>
+      <div class="col-xs-3">
+         <span>Total Cost(Euro) </span>
+      </div>
+      <div class="col-xs-3">
+         <span>Total Cost(Pounds) </span>
+      </div>
+   </div>
+   <div class="row card-block"
+        *ngFor="let faas of faasListForDash | vmwLoading">
+      <div class="col-xs-1">
+         <span>{{faas.id}}</span>
+      </div>
+      <div class="col-xs-2">
+         <span>{{faas.name}}</span>
+      </div>
+      <div class="col-xs-3">
+         <span>{{faas.totalCost | currency: 'USD' : 'symbol'}}</span>
+      </div>
+      <div class="col-xs-3">
+         <span>{{faas.totalCost * exchangeRateEUR | currency: 'EUR' : 'symbol'}}</span>
+      </div>
+      <div class="col-xs-3">
+         <span>{{faas.totalCost * exchangeRateGBP | currency: 'GBP' : 'symbol'}}</span>
+      </div>
+   </div>
